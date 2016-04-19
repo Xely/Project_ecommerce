@@ -15,8 +15,14 @@
         <div class="navbar-header col-sm-1">
             <a class="navbar-brand" href="index.php">Tabl'Art</a>
         </div>
-        <div class="navbar-header col-sm-2">
-            <a class="navbar-brand" href="index.php?p=admin.products.index.php">Partie admin</a>
+        <div class="navbar-header col-sm-1">
+            <a class="navbar-brand" href="index.php?p=admin.products.index">Admin</a>
+        </div>
+        <div class="navbar-header col-sm-1">
+            <a class="navbar-brand" href="index.php?p=users.login">Login</a>
+        </div>
+        <div class="navbar-header col-sm-1">
+            <a class="navbar-brand" href="index.php?p=users.register">Register</a>
         </div>
     </div>
 </nav>

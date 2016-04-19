@@ -73,6 +73,19 @@ class Database
         return $datas;
     }
 
+    /**
+     *
+     */
+    public function getPDO()
+    {
+        if ($this->pdo === null) {
+            $pdo = new PDO('mysql:dbname=ecommerce;host=localhost', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = $pdo;
+        }
+        return $this->pdo;
+    }
+
     public function prepare($statement, $attributes, $class_name = null, $one = false)
     {
         $req = $this->getPDO()->prepare($statement);
@@ -98,20 +111,8 @@ class Database
         return $datas;
     }
 
-    /**
-     *
-     */
-    public function getPDO()
+    public function lastInsertId()
     {
-        if ($this->pdo === null) {
-            $pdo = new PDO('mysql:dbname=ecommerce;host=localhost', 'root', '');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->pdo = $pdo;
-        }
-        return $this->pdo;
-    }
-
-    public function lastInsertId() {
         return $this->getPDO()->lastInsertId();
     }
 

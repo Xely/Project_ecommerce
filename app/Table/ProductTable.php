@@ -9,7 +9,7 @@ class ProductTable extends Table
     public function getOneWithCategory($product_id)
     {
         return $this->query('
-          SELECT product.id, product.name, product.description, product.id_category, category.name AS category
+          SELECT product.id, product.name, product.description, product.id_category, product.picture, category.name AS category
           FROM product
           INNER JOIN category
             ON category.id = product.id_category
@@ -21,7 +21,7 @@ class ProductTable extends Table
     public function getByCategory($category_id)
     {
         return $this->query('
-          SELECT product.id, product.name, product.description, category.name AS category
+          SELECT product.id, product.name, product.description, product.picture, category.name AS category
           FROM product
           INNER JOIN category
             ON category.id = product.id_category
@@ -33,7 +33,7 @@ class ProductTable extends Table
     public function all()
     {
         return $this->query('
-          SELECT product.id, product.name, product.description, category.name AS category
+          SELECT product.id, product.name, product.description, product.picture, category.name AS category
           FROM product
           INNER JOIN category
             ON category.id = product.id_category

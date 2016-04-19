@@ -5,7 +5,7 @@ define('ROOT', dirname(dirname(__FILE__)) . DS); // pour se simplifier la vie
 require_once '..\app\App.php';
 App::load();
 
-require_once '..\app\Table\ProductTable.php';
+//require_once '..\app\Table\ProductTable.php';
 if (isset($_GET['p'])) {
     $page = $_GET['p'];
 } else {
@@ -22,10 +22,6 @@ if ($page[0] === 'admin') {
 }
 $controller = new $controller();
 $controller->$action();
-
-
-
-
 
 
 

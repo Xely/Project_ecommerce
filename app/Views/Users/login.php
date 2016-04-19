@@ -7,5 +7,5 @@
     <?= $form->input('username', 'Nom d\'utilisateur'); ?>
     <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>
 
-    <?= $form->submit(); ?>
+    <?= $form->submit('Se connecter'); ?>
 </form>

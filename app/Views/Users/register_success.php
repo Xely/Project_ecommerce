@@ -1,0 +1,1 @@
+<h2>Inscription validee <?= $_POST['username']; ?>, vous pouvez desormais vous connecter</h2>

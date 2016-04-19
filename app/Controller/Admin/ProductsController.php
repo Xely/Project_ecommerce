@@ -42,6 +42,9 @@ class ProductsController extends AppController
         if (!empty($_POST)) {
             $result = $this->Product->update($_GET['id'], [
                 'name' => $_POST['name'],
+                'description' => $_POST['description'],
+                'picture' => $_POST['picture'],
+                'id_category' => $_POST['id_category']
             ]);
             if ($result) {
                 return $this->index();
@@ -49,9 +52,11 @@ class ProductsController extends AppController
         }
         $product = $this->Product->getOne($_GET['id']);
         $this->loadModel('Category');
-        $category = $this->Category->getOne($_GET['id']);
-        $form = new BootstrapForm($category);
-        $this->render('admin.products.edit', compact('categories', 'form'));
+//        $category = $this->Category->getOne($_GET['id']);
+        $categories = $this->Category->extract('id', 'name');
+//        $categories = $this->Category->all();
+        $form = new BootstrapForm($product);
+        $this->render('admin.products.edit', compact('form', 'product', 'categories'));
     }
 
     public function delete()

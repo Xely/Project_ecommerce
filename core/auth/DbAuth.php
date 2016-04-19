@@ -24,6 +24,9 @@ class DbAuth
         $this->db = $db;
     }
 
+    /**
+     * @return bool
+     */
     public function getUserId()
     {
         if ($this->logged()) {
@@ -33,13 +36,14 @@ class DbAuth
     }
 
     /**
+     * Checks if the username and password are correct
      * @param $username
      * @param $password
-     * @return boolean
+     * @return boolean True if the user and his password are correct
      */
     public function login($username, $password)
     {
-        $user = $this->db->prepare('
+        $user = $this->db->query('
           SELECT *
           FROM user
           WHERE username = ?
@@ -51,9 +55,11 @@ class DbAuth
             }
         }
         return false;
-
     }
 
+    /**
+     * @return bool True if the user is logged in
+     */
     public function registered()
     {
         return isset($_SESSION['registered']);
