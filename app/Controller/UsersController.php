@@ -18,6 +18,7 @@ class UsersController extends AppController
     public function login()
     {
         $errors = false;
+        var_dump($_POST);
         if (!empty($_POST)) {
             $auth = new DbAuth(App::getInstance()->getDb());
             if ($auth->login($_POST['username'], $_POST['password'])) {

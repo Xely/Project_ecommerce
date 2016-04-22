@@ -9,8 +9,6 @@
     </div>
 </nav>
 
-
-
 <br>
 
 <div class="row">
@@ -24,18 +22,18 @@
         <p style="font-size: 20px;">Prix: EUR <?= number_format((float)$product->price, 2, '.', ''); ?></p>
     </div>
 
-    <img class="col s3 responsive-img offset-s1" src="<?= 'Pictures/' . $product->picture; ?>"
-         alt="<?= $product->name; ?>">
+    <img class="materialboxed" width="650" src="<?= 'Pictures/' . $product->picture; ?>">
+
 </div>
 
 
-<form method="post" class="container" id="product__single__add">
-    <div class="col s3"><?= $form->selectNumber('quantity', 'Quantite:',
-            isset($_SESSION['cart'][$product->id]) ? $product->stock - $_SESSION['cart'][$product->id] : $product->stock,
-            1); ?>
-        <br>
+<form method="post" class="row" id="product__single__add">
+    <?= $form->selectNumber('quantity', 'Quantite:',
+        isset($_SESSION['cart'][$product->id]) ? $product->stock - $_SESSION['cart'][$product->id] : $product->stock,
+        1); ?>
+    <br>
+    <div class="single__add__button">
         <?= $form->submit('Ajouter au panier'); ?>
     </div>
-
 </form>
 

@@ -17,16 +17,17 @@
 <body>
 
 <div class="container">
-    <div class="col">
+    <div class="col header__main">
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">one</a></li>
             <li><a href="#!">two</a></li>
             <li class="divider"></li>
             <li><a href="#!">three</a></li>
         </ul>
+
         <nav>
             <div class="nav-wrapper brown lighten-1">
-                <a href="index.php" class="brand-logo">&nbspTabl'Art</a>
+                <a href="index.php" class="brand-logo">Tabl'Art</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($_SESSION['admin']) && isset($_SESSION['registered']) && $_SESSION['admin'] == 1 && $_SESSION['registered']) { ?>
                         <li><a href="index.php?p=admin.products.index">Admin</a></li>
@@ -35,16 +36,21 @@
                         <li><a href="index.php?p=users.logout">Bonjour <?= $_SESSION['username']; ?>
                                 <br>Logout</a></li>
                     <?php else : ?>
-                        <li><a class="modal-trigger btn" href="#modal_login">Login</a></li>
+                        <li><a class="modal-trigger" href="#modal_login">Login</a></li>
                         <!-- Modal Structure -->
                         <div id="modal_login" class="modal">
                             <div class="modal-content col s6">
                                 <h4>Identification</h4>
-                                <p><label for="username">Nom d'utilisateur <input type="text" id="username"></label></p>
-                                <p><label for="password">Mot de passe <input type="password" id="password"></label></p>
+                                <form action="index.php?p=users.login" method="post">
+                                    <p><label for="username">Nom d'utilisateur <input type="text" id="username"></label>
+                                    </p>
+                                    <p><label for="password">Mot de passe <input type="password" id="password"></label>
+                                    </p>
                             </div>
                             <div class="modal-footer">
-                                <a href="#!" class=" modal-action waves-effect waves-green btn">Se connecter</a>
+                                <button type="submit" class="modal-action waves-effect waves-green btn">Se connecter</button>
+                                <!--                                <a href="#" class=" modal-action waves-effect waves-green btn">Se connecter</a>-->
+                                </form>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -61,12 +67,11 @@
                         }
                     }
                     ?>
-                    <li><a href="index.php?p=users.cart">Panier: <span
+                    <li><a class="btn-large" href="index.php?p=users.cart"><i
+                                class="material-icons left">shopping_cart</i>
+                            Panier: <span
                                 class="header__cart"><?= $cartNb; ?></span>
                             articles</a></li>
-                    <!--                     Dropdown Trigger-->
-                    <li><a href="#!" data-activates="dropdown1">Dropdown<i
-                                class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
@@ -76,9 +81,9 @@
 
 <div class="container">
 
-<!--    <div class="" style="padding-top: 100px">-->
-        <?= $content; ?>
-<!--    </div>-->
+    <!--    <div class="" style="padding-top: 100px">-->
+    <?= $content; ?>
+    <!--    </div>-->
 
 </div>
 

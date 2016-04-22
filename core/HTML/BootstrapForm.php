@@ -59,8 +59,9 @@ class BootstrapForm extends Form
             }
         }
         $input .= '</select>';
-        return '<div class="input-field col s12">' . $label . $input . '</div>';
+        return '<div class="input-field col">' . $input . $label . '</div>';
     }
+
 
     /**
      * @return string returns a button for a form

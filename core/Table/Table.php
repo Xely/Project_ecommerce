@@ -76,17 +76,18 @@ class Table
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
-    public function all()
+    public function extract($key, $value)
     {
-        return $this->query('SELECT * FROM ' . $this->table);
-    }
-
-    public function extract($key, $value) {
         $records = $this->all();
         $return = [];
         foreach ($records as $v) {
             $return[$v->$key] = $v->$value;
         }
         return $return;
+    }
+
+    public function all()
+    {
+        return $this->query('SELECT * FROM ' . $this->table);
     }
 }
