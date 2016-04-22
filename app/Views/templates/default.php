@@ -26,8 +26,8 @@
         </ul>
 
         <nav>
-            <div class="nav-wrapper brown lighten-1">
-                <a href="index.php" class="brand-logo">Tabl'Art</a>
+            <div class="nav-wrapper brown">
+                <a href="index.php" class="brand-logo">&nbspTabl'Art</a>
                 <ul class="right hide-on-med-and-down">
                     <?php if (isset($_SESSION['admin']) && isset($_SESSION['registered']) && $_SESSION['admin'] == 1 && $_SESSION['registered']) { ?>
                         <li><a href="index.php?p=admin.products.index">Admin</a></li>
@@ -41,7 +41,7 @@
                         <div id="modal_login" class="modal">
                             <div class="modal-content col s6">
                                 <h4>Identification</h4>
-                                <form action="index.php?p=users.login" method="post">
+                                <form action="#login" method="post">
                                     <p><label for="username">Nom d'utilisateur <input type="text" id="username"></label>
                                     </p>
                                     <p><label for="password">Mot de passe <input type="password" id="password"></label>

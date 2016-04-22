@@ -1,6 +1,5 @@
 body {
-    font-family: Verdana;
-    background-color: #fff;
+    background-color: #f5f5f5
 }
 
 /*.products__index__product {*/
@@ -42,7 +41,8 @@ body {
 .index__product__inner {
     color: #212121;
     border: 2px black solid;
-    margin: 5px
+    margin: 5px;
+    margin-top: 20px
 }
 
 .index__product__link {
@@ -61,4 +61,8 @@ select {
 
 .register__form {
     margin-top: 100px;
+}
+
+.productsByCat__row {
+    margin-top: 50px;
 }

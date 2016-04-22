@@ -1,3 +1,4 @@
+<br>
 <nav>
     <div class="nav-wrapper grey">
         <div class="col s12">
@@ -15,25 +16,25 @@
     <div class="col s6">
         <h1><?= ucfirst($product->name); ?></h1>
 
-        <p><em><?= ucfirst($product->category); ?></em></p>
-
-        <p><?= $product->description; ?></p>
+        <p class="flow-text"><?= $product->description; ?></p>
         <br>
-        <p style="font-size: 20px;">Prix: EUR <?= number_format((float)$product->price, 2, '.', ''); ?></p>
+        <p class="flow-text"><b>Prix: EUR <?= number_format((float)$product->price, 2, '.', ''); ?></b></p>
+
+        <form method="post" class="row" id="product__single__add">
+            <?= $form->selectNumber('quantity', 'Quantite:',
+                isset($_SESSION['cart'][$product->id]) ? $product->stock - $_SESSION['cart'][$product->id] : $product->stock,
+                1); ?>
+            <br>
+            <div class="single__add__button">
+                <?= $form->submit('Ajouter au panier'); ?>
+            </div>
+        </form>
+
     </div>
 
-    <img class="materialboxed" width="650" src="<?= 'Pictures/' . $product->picture; ?>">
+    <img class="materialboxed z-depth-2" width="550" src="<?= 'Pictures/' . $product->picture; ?>">
 
 </div>
 
 
-<form method="post" class="row" id="product__single__add">
-    <?= $form->selectNumber('quantity', 'Quantite:',
-        isset($_SESSION['cart'][$product->id]) ? $product->stock - $_SESSION['cart'][$product->id] : $product->stock,
-        1); ?>
-    <br>
-    <div class="single__add__button">
-        <?= $form->submit('Ajouter au panier'); ?>
-    </div>
-</form>
 

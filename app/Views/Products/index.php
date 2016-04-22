@@ -1,6 +1,6 @@
 <br>
 <nav>
-    <div class="nav-wrapper brown lighten-1">
+    <div class="nav-wrapper brown">
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
             <?php foreach ($categories as $category) : ?>
@@ -62,7 +62,7 @@
 
             <div class="col s4 index__product">
                 <a href="<?= $product->url ?>">
-                    <div class="col s12 index__product__inner">
+                    <div class="col s12 index__product__inner z-depth-2">
                         <div class="col s6">
                             <h5 class="index__product__link"><?= $product->name ?></h5>
                             <p>
