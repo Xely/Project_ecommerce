@@ -28,7 +28,7 @@ class ProductsController extends AppController
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'name');
         $form = new BootstrapForm($_POST);
-        $this->render('admin.products.edit', compact('categories', 'form'));
+        $this->render('admin.products.add', compact('categories', 'form'));
     }
 
     public function index()

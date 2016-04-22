@@ -1,7 +1,7 @@
 <h1>Administrer les produits</h1>
 
 <p>
-    <a href="?p=products.add" class="btn btn-success">Ajouter</a>
+    <a href="?p=admin.products.add" class="btn btn-success">Ajouter</a>
 </p>
 
 

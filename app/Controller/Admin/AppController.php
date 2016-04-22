@@ -12,7 +12,10 @@ class AppController extends \App\Controller\AppController
         parent::__construct();
         $app = App::getInstance();
         $auth = new DbAuth($app->getDb());
-        if (!$auth->registered()) {
+//        if (!$auth->registered()) {
+//            $this->forbidden();
+//        }
+        if ($_SESSION['admin'] != 1) {
             $this->forbidden();
         }
     }

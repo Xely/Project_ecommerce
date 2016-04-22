@@ -32,7 +32,7 @@ class BootstrapForm extends Form
     public function select($name, $label, $options)
     {
         $label = '<label>' . $label . '</label>';
-        $input = '<select class="form-control" name="' . $name . '">';
+        $input = '<select name="' . $name . '">';
         foreach ($options as $k => $v) {
             $attributes = '';
             if ($k == $this->getValue($name)) {
@@ -44,11 +44,29 @@ class BootstrapForm extends Form
         return $this->surround($label . $input);
     }
 
+    public function selectNumber($name, $label = null, $max, $select) {
+        if ($label === null ) {
+            $label = '';
+        } else {
+            $label = '<label>' . $label . '</label>';
+        }
+        $input = '<select style="max-width:40%;" name="' . $name . '">';
+        for ($i = 1; $i < $max + 1; $i++) {
+            if ($i === $select) {
+                $input .= "<option value='$i' data-value='$i' selected>$i</option>";
+            } else {
+                $input .= "<option value='$i'>$i</option>";
+            }
+        }
+        $input .= '</select>';
+        return '<div class="input-field col s12">' . $label . $input . '</div>';
+    }
+
     /**
      * @return string returns a button for a form
      */
     public function submit($text)
     {
-        return $this->surround('<button type="submit" class="btn btn-primary">' . $text . '</button>');
+        return $this->surround('<button type="submit" class="btn grey">' . $text . '</button>');
     }
 }

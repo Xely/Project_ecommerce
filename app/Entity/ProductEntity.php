@@ -9,7 +9,7 @@ class ProductEntity extends Entity
     public function getExcerpt()
     {
         $html = '<p>' . substr($this->description, 0, 200) . '...</p>';
-        $html .= '<p><a href="' . $this->getURL() . '">Voir la suite</a></p>';
+//        $html .= '<p><a href="' . $this->getURL() . '">Voir la suite</a></p>';
         return $html;
     }
 

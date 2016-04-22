@@ -1,5 +1,6 @@
 body {
     font-family: Verdana;
+    background-color: #fff;
 }
 
 /*.products__index__product {*/
@@ -9,6 +10,38 @@ body {
 
 /*}*/
 
+.navbar {
+    height: 50px;
+}
+
+
 .admin__products__edit__pic {
     width: 30%;
+}
+
+/*#carousel {*/
+    /*display: block;*/
+/*}*/
+
+.btn {
+    border-radius: 2px;
+}
+
+.form-control {
+    border-radius: 2px;
+}
+
+#modal_login {
+    color: black;
+}
+
+.index__product__inner {
+    color: #212121;
+    border: 2px black solid;
+    margin: 5px
+}
+
+.index__product__link {
+    text-decoration: none;
+    color: brown;
 }

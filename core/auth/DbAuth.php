@@ -43,14 +43,17 @@ class DbAuth
      */
     public function login($username, $password)
     {
-        $user = $this->db->query('
+        $user = $this->db->prepare('
           SELECT *
           FROM user
           WHERE username = ?
           ', [$username], null, true);
         if ($user) {
             if ($user->password === sha1($password)) {
-                $_SESSION['registered'] = $user->id;
+                $_SESSION['registered'] = 1;
+                $_SESSION['admin'] = $user->admin;
+                $_SESSION['username'] = $user->username;
+                $_SESSION['id'] = $user->id;
                 return true;
             }
         }

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 
+use Core\HTML\BootstrapForm;
+
 class ProductsController extends AppController
 {
     public function __construct()
@@ -33,6 +35,26 @@ class ProductsController extends AppController
     public function single()
     {
         $product = $this->Product->getOneWithCategory($_GET['id']);
-        $this->render('products.single', compact('product'));
+        if (!empty($_POST)) {
+            $this->addProductToCart($product, $_POST['quantity']);
+            $this->index();
+        }
+        $form = new BootstrapForm();
+        $this->render('products.single', compact('product', 'form'));
+    }
+
+    public function addProductToCart($product, $quantity = 1) {
+        if (isset($_SESSION['cart'][$product->id])) {
+            $_SESSION['cart'][$product->id] += $quantity;
+        } else {
+            $_SESSION['cart'][$product->id] = $quantity;
+        }
+    }
+
+    public function deleteFromCart() {
+        if (isset($_SESSION['cart'][$_GET['id']])) {
+            unset($_SESSION['cart'][$_GET['id']]);
+        }
+        header('Location: index.php?p=users.cart');
     }
 }

@@ -9,7 +9,7 @@ class ProductTable extends Table
     public function getOneWithCategory($product_id)
     {
         return $this->query('
-          SELECT product.id, product.name, product.description, product.id_category, product.picture, category.name AS category
+          SELECT product.id, product.name, product.description, product.id_category, product.picture, product.price, product.stock, category.name AS category
           FROM product
           INNER JOIN category
             ON category.id = product.id_category
